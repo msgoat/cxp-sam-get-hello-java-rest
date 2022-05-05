@@ -1,0 +1,11 @@
+version = 0.1
+[default]
+[default.deploy]
+[default.deploy.parameters]
+stack_name = "cxp-sam-get-hello-java"
+s3_bucket = "s3-eu-west-1-cxpserverless-dev-lambda"
+s3_prefix = "cxp-sam-get-hello-java"
+region = "eu-west-1"
+confirm_changeset = true
+capabilities = "CAPABILITY_IAM"
+image_repository = "005913962162.dkr.ecr.eu-west-1.amazonaws.com/cxpserverless-dev-lambda"
