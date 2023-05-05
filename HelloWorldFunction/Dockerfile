@@ -1,7 +1,7 @@
 FROM public.ecr.aws/sam/build-java17:latest as build-image
 
 WORKDIR "/task"
-COPY src/ src/
+COPY src src/
 COPY pom.xml ./
 
 RUN mvn -q clean install

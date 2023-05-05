@@ -1,6 +1,6 @@
-# cxp-sam-get-hello-java iteration 0
+# cxp-sam-get-hello-java-rest iteration 0
 
-This is the first iteration of a Hello World sample demonstrating the development of Lambda functions with AWS SAM
+This is the first iteration of a Hello World sample demonstrating the development of Lambda functions with AWS SAM using a REST API.
  
 This project contains source code and supporting files for a serverless application that you can deploy with the SAM CLI. It includes the following files and folders.
 
@@ -41,7 +41,7 @@ You can find your API Gateway Endpoint URL in the output values displayed after 
 Build your application with the `sam build` command.
 
 ```bash
-cxp-sam-get-hello-java$ sam build
+cxp-sam-get-hello-java-rest$ sam build
 ```
 
 The SAM CLI builds a docker image from a Dockerfile and then installs dependencies defined in `HelloWorldFunction/pom.xml` inside the docker image. The processed template file is saved in the `.aws-sam/build` folder.
@@ -51,14 +51,14 @@ Test a single function by invoking it directly with a test event. An event is a 
 Run functions locally and invoke them with the `sam local invoke` command.
 
 ```bash
-cxp-sam-get-hello-java$ sam local invoke HelloWorldFunction --event events/event.json
+cxp-sam-get-hello-java-rest$ sam local invoke HelloWorldFunction --event events/event.json
 ```
 
 The SAM CLI can also emulate your application's API. Use the `sam local start-api` to run the API locally on port 3000.
 
 ```bash
-cxp-sam-get-hello-java$ sam local start-api
-cxp-sam-get-hello-java$ curl http://localhost:3000/
+cxp-sam-get-hello-java-rest$ sam local start-api
+cxp-sam-get-hello-java-rest$ curl http://localhost:3000/
 ```
 
 The SAM CLI reads the application template to determine the API's routes and the functions that they invoke. The `Events` property on each function's definition includes the route and method for each path.
@@ -82,7 +82,7 @@ To simplify troubleshooting, SAM CLI has a command called `sam logs`. `sam logs`
 `NOTE`: This command works for all AWS Lambda functions; not just the ones you deploy using SAM.
 
 ```bash
-cxp-sam-get-hello-java$ sam logs -n HelloWorldFunction --stack-name cxp-sam-get-hello-java --tail
+cxp-sam-get-hello-java-rest$ sam logs -n HelloWorldFunction --stack-name cxp-sam-get-hello-java-rest --tail
 ```
 
 You can find more information and examples about filtering Lambda function logs in the [SAM CLI Documentation](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-cli-logging.html).
@@ -92,7 +92,7 @@ You can find more information and examples about filtering Lambda function logs 
 Tests are defined in the `HelloWorldFunction/src/test` folder in this project.
 
 ```bash
-cxp-sam-get-hello-java$ cd HelloWorldFunction
+cxp-sam-get-hello-java-rest$ cd HelloWorldFunction
 HelloWorldFunction$ mvn test
 ```
 
@@ -101,7 +101,7 @@ HelloWorldFunction$ mvn test
 To delete the sample application that you created, use the AWS CLI. Assuming you used your project name for the stack name, you can run the following:
 
 ```bash
-aws cloudformation delete-stack --stack-name cxp-sam-get-hello-java
+aws cloudformation delete-stack --stack-name cxp-sam-get-hello-java-rest
 ```
 
 ## Resources

@@ -1,9 +1,9 @@
 AWSTemplateFormatVersion: '2010-09-09'
 Transform: AWS::Serverless-2016-10-31
 Description: >
-  cxp-sam-get-hello-java
+  cxp-sam-get-hello-java-rest
 
-  Sample SAM Template for cxp-sam-get-hello-java
+  Sample SAM Template for cxp-sam-get-hello-java-rest
 
 # More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
 Globals:
@@ -25,7 +25,7 @@ Resources:
         HelloWorld:
           Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
           Properties:
-            Path: /cxp-sam-get-hello-java/hello
+            Path: /cxp-sam-get-hello-java-rest/hello
             Method: get
     Metadata:
       DockerTag: java17-maven-v1
@@ -38,7 +38,7 @@ Outputs:
   # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
   HelloWorldApi:
     Description: "API Gateway endpoint URL for Prod stage for Hello World function"
-    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/cxp-sam-get-hello-java/hello/"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/cxp-sam-get-hello-java-rest/hello/"
   HelloWorldFunction:
     Description: "Hello World Lambda Function ARN"
     Value: !GetAtt CxpSamGetHelloJavaFunction.Arn
